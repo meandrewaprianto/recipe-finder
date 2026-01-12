@@ -40,6 +40,21 @@ app.post("/api/favorites", async (req, res) => {
   }
 });
 
+app.get("/api/favorites/:userId", async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const userFavorites = await db
+      .select()
+      .from(favoritesTable)
+      .where(eq(favoritesTable.userId, userId));
+
+    res.status(200).json(userFavorites);
+  } catch (error) {
+    console.error("Error fetching the favorite", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.delete("/api/favorites/:userId/:recipeId", async (req, res) => {
   try {
     const { userId, recipeId } = req.params;
