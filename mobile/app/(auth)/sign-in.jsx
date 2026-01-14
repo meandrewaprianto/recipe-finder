@@ -86,7 +86,7 @@ const SignInScreen = () => {
                 placeholder="Enter email"
                 placeholderTextColor={COLORS.textLight}
                 value={email}
-                onChange={setEmail}
+                onChangeText={setEmail}
                 keyboardType="email-address"
                 autoCapitalize="none"
               />
