@@ -22,6 +22,11 @@ const VerifyEmail = ({ email, onBack }) => {
   const handleVerification = async () => {
     if (!isLoaded) return;
 
+    if (!code.trim()) {
+      Alert.alert("Error", "Please enter the verification code");
+      return;
+    }
+
     setLoading(true);
     try {
       const signUpAttempt = await signUp.attemptEmailAddressVerification({
