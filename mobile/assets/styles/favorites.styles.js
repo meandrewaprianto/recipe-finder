@@ -16,7 +16,7 @@ export const favoritesStyles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: "800",
-    colors: COLORS.text,
+    color: COLORS.text,
     letterSpacing: -0.5,
   },
   logoutButton: {
